@@ -1,7 +1,7 @@
 import expess from 'express'
 import { Request, Response } from 'express'
 import errorHandler from './middlewares/errorHandler'
-import router from './routes/product-route'
+import router from './routes/route'
 
 const app = expess()
 

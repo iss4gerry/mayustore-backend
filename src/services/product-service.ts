@@ -1,5 +1,5 @@
 import Product from '../models/productModel'
-import { AllProductResponse, ProductResponse } from '../types/product-type'
+import { AllProductResponse } from '../types/product-type'
 
 
 export class ProductService {

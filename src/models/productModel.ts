@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose'
 
 export interface IProduct extends Document {
     code: string;
@@ -9,14 +9,14 @@ export interface IProduct extends Document {
     averageRating: number;
 }
 
-const productSchema: Schema = new Schema({
+const productSchema: Schema = new Schema<IProduct>({
     code: { type: String, required: true },
     name: { type: String, required: true },
     price: { type: Number, required: true },
     description: { type: String, required: false },
     imageUrl: { type: String, required: false },
     averageRating: { type: Number, required: false }
-});
+})
 
 mongoose.set('toJSON', {
     virtuals: true,
@@ -27,6 +27,6 @@ mongoose.set('toJSON', {
     }
 })  
 
-const Product = mongoose.model<IProduct>('products', productSchema);
+const Product = mongoose.model<IProduct>('products', productSchema)
 
 export default Product
