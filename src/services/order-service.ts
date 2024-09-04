@@ -19,4 +19,26 @@ export class OrderService {
             }
         ]);
     }
+
+    static async addToCart(id: number, productCode: string): Promise<unknown> {
+        return await Order.updateOne({
+            user_id: id
+        },{
+            $addToSet: {
+                cart_items: productCode
+            }
+        }
+    )
+    }
+
+    static async removeFromCart(id: number, productCode: string): Promise<unknown> {
+        return await Order.updateOne({
+            user_id: id
+        },{
+            $pull: {
+                cart_items: productCode
+            }
+        }
+    )
+    }
 }

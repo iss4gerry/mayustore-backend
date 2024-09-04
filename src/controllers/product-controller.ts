@@ -13,4 +13,14 @@ export class ProductController {
             data: result
         })
     })
+
+    static getOne = catchAsync(async (req: Request, res: Response) => {
+        const result = await ProductService.getOne(Number(req.params.id))
+
+        res.status(httpStatus.OK).send({
+            status: httpStatus.OK, 
+            message: 'Success',
+            data: result
+        })
+    })
 }

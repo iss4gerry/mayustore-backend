@@ -8,8 +8,20 @@ router
     .route('/products')
     .get(ProductController.findAll)
 
+router
+    .route('/products/:id')
+    .get(ProductController.getOne)
+
 router 
-    .route('/users/:id')
+    .route('/orders/user/:id')
     .get(OrderController.findOrder)
+
+router 
+    .route('/orders/user/:id/add')
+    .post(OrderController.addToCart)
+
+router 
+    .route('/orders/user/:id/product/:product')
+    .delete(OrderController.removeFromCart)
 
 export default router

@@ -13,4 +13,24 @@ export class OrderController {
             data: result
         })
     })
+
+    static addToCart = catchAsync(async(req: Request, res: Response) => {
+        const result = await OrderService.addToCart(Number(req.params.id), String(req.body.product))
+
+        res.status(httpStatus.OK).send({
+            status: httpStatus.OK,
+            message: 'Success',
+            data: result
+        })
+    })
+
+    static removeFromCart = catchAsync(async(req: Request, res: Response) => {
+        const result = await OrderService.removeFromCart(Number(req.params.id), String(req.params.product))
+
+        res.status(httpStatus.OK).send({
+            status: httpStatus.OK,
+            message: 'Success',
+            data: result
+        })
+    })
 }
